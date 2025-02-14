@@ -11,61 +11,6 @@ function showSection(sectionId) {
 let currentPage = 0;
 const itemsPerPage = 6;
 
-// Function to upload image to Replit API
-async function uploadMemoryToReplit(memoryData) {
-    try {
-        const response = await fetch("https://your-replit-username.repl.co/upload", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(memoryData)
-        });
-
-        if (response.ok) {
-            console.log("Memory uploaded to Replit successfully!");
-            fetchMemoriesFromReplit(); // Refresh the memory gallery
-        } else {
-            console.error("Failed to upload memory to Replit.");
-        }
-    } catch (error) {
-        console.error("Error uploading memory to Replit:", error);
-    }
-}
-
-// Function to fetch memories from Replit API
-async function fetchMemoriesFromReplit() {
-    try {
-        const response = await fetch("https://your-replit-username.repl.co/memories");
-        const memories = await response.json();
-
-        const memoryGallery = document.getElementById('memoryGallery');
-        memoryGallery.innerHTML = "";
-
-        memories.forEach(memory => {
-            const memoryDiv = document.createElement('div');
-            memoryDiv.classList.add('memory-item');
-
-            const img = document.createElement('img');
-            img.src = memory.image;
-
-            const dateParagraph = document.createElement('p');
-            dateParagraph.classList.add('memory-date');
-            dateParagraph.textContent = `Added on: ${memory.date}`;
-
-            const descriptionParagraph = document.createElement('p');
-            descriptionParagraph.classList.add('memory-description');
-            descriptionParagraph.textContent = memory.description;
-
-            memoryDiv.appendChild(img);
-            memoryDiv.appendChild(dateParagraph);
-            memoryDiv.appendChild(descriptionParagraph);
-            memoryGallery.appendChild(memoryDiv);
-        });
-    } catch (error) {
-        console.error("Error fetching memories from Replit:", error);
-    }
-}
-
-// Modify addMemory function to upload to Replit
 function addMemory() {
     const fileInput = document.getElementById('imageInput');
     const file = fileInput.files[0];
@@ -80,16 +25,12 @@ function addMemory() {
                 description: description
             };
 
-            uploadMemoryToReplit(memoryData); // Upload to Replit
+            saveMemory(memoryData);
+            displayMemories();
         };
         reader.readAsDataURL(file);
     }
 }
-
-// Fetch memories from Replit on page load
-window.onload = function () {
-    fetchMemoriesFromReplit();
-};
 
 function saveMemory(memoryData) {
     let memories = JSON.parse(localStorage.getItem("memories")) || [];
@@ -237,6 +178,7 @@ function resizeImage(imgSrc, callback) {
         callback(canvas.toDataURL("image/jpeg"));
     };
 }
+
 
 function updateSlideshow() {
     document.querySelectorAll(".slide img").forEach((img) => {
