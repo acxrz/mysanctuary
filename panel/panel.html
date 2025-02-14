@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Panel</title>
+  <link href="https://fonts.cdnfonts.com/css/graciast-2" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/barjiah" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/modern-typewriter" rel="stylesheet">
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <div id="loading-screen"></div>
+  <script>
+    setTimeout(() => {
+        let loadingScreen = document.getElementById("loading-screen");
+        loadingScreen.style.animation = "fadeOut 2s ease-in-out forwards";
+
+        setTimeout(() => {
+            loadingScreen.style.display = "none";
+        }, 2000);
+    }, 1000);
+</script>
+
+  <div class="vinyl-background"></div>
+  <div class="butterfly-container">
+    <img src="butterfly.gif" class="butterfly" style="--randomY: 10vh;">
+    <img src="butterfly.gif" class="butterfly" style="--randomY: 20vh;">
+    <img src="butterfly.gif" class="butterfly" style="--randomY: 30vh;">
+    <img src="butterfly.gif" class="butterfly" style="--randomY: 40vh;">
+    <img src="butterfly.gif" class="butterfly" style="--randomY: 50vh;">
+    <img src="butterfly.gif" class="butterfly" style="--randomY: 60vh;">
+    <img src="butterfly.gif" class="butterfly" style="--randomY: 70vh;">
+    <img src="butterfly.gif" class="butterfly" style="--randomY: 80vh;">
+    <img src="butterfly.gif" class="butterfly" style="--randomY: 90vh;">
+    <img src="butterfly.gif" class="butterfly" style="--randomY: 100vh;">
+</div>
+
+<div class="tulip-background">
+  <img src="blue-tulip.png" alt="Blue Tulip">
+</div>
+
+
+
+
+  <audio id="backgroundMusic" autoplay loop>
+    <source src="bawatsandali.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="secure-panel">
+    <nav class="panel-nav">
+      <button onclick="showSection('home')" class="nav-button">Home</button>
+      <button onclick="showSection('readMe')" class="nav-button">Letter</button>
+      <button onclick="showSection('memories')" class="nav-button">Memories</button>
+    </nav>
+
+   
+
+    <div id="home" class="panel-section">
+      <h2 class="welcometitle">Happy Valentines My Love! 💙</h2>
+  
+      <!-- Slideshow Container -->
+      <div class="slideshow-container">
+          <div id="slideshow">
+              <div class="slide"><img src="baby1.jpg" alt="Image 1"></div>
+              <div class="slide"><img src="baby2.jpg" alt="Image 2"></div>
+              <div class="slide"><img src="baby3.jpg" alt="Image 3"></div>
+              <div class="slide"><img src="baby4.jpg" alt="Image 4"></div>
+          </div>
+      </div>
+  
+      <!-- Click Me Button -->
+      <button class="click-me-btn" onclick="openPopup()">Click Me</button>
+  
+      <!-- Popup Container -->
+      <div id="popup" class="popup">
+          <div class="popup-content">
+              <span class="close-btn" onclick="closePopup()">×</span>
+              <p>Happy Valentine's Day, baby! 💙 I love you so much. You're the best thing that ever happened to me. 💖</p>
+          </div>
+      </div>
+  </div>
+
+
+    <div id="readMe" class="panel-section hidden">
+      <h2 class="readme">Letter</h2>
+      <p>This is a special place filled with love of words for you!</p>
+    <div class="tag-filters">
+      <button class="tag-button" onclick="filterLetters('all')">All</button>
+      <button class="tag-button" onclick="filterLetters('love')">Love</button>
+      <button class="tag-button" onclick="filterLetters('health')">Health</button>
+      <button class="tag-button" onclick="filterLetters('you')">You</button>
+  </div>
+
+   <div id="letterSection" class="letter-section">
+    <div class="letter-box" data-tag="love">
+        <p>Hi my baby ko, i know na lagi ko tong sinasabi sayo, but i just want you to remember na mahal na mahal kita lagi okay? whatever happens ikaw at ikaw lang ang mamahalin ko. At lagi mo ring tatandaan na if you feel lonely just know andito ako lagi para sayo baby ko!</p>
+        <span class="letter-tag">#Love</span>
+    </div>
+    <div class="letter-box" data-tag="health">
+        <p>Matigas pa naman ulo mo talaga, but please take care of yourself ha? wag mo hayaang pagutumin sarili mo magkakaulcer ka nyan ah!</p>
+        <span class="letter-tag">#Health</span>
+    </div>
+    <div class="letter-box" data-tag="you">
+        <p>Thank you love, for always understanding me and giving me a chance! im so lucky to have you baby ko!!</p>
+        <span class="letter-tag">#You</span>
+    </div>
+    <div class="letter-box" data-tag="love">
+      <p>I want to spend my life with you, and with you only!</p>
+      <span class="letter-tag">#Love</span>
+  </div>
+  <div class="letter-box" data-tag="you">
+    <p>Hayss sana makita mo kung gaano ka kaganda love, so you wont have to look down on yourself minsan. sabi nga “Butterflies can't see their wings. They can't see how truly beautiful they are, but everyone else can. People are like that as well.”</p>
+    <span class="letter-tag">#You</span>
+</div>
+<div class="letter-box" data-tag="you">
+  <p>You know love, everytime na magkasama tayo, kahit yun lang. You make me happy especially kapag ngumingiti ka ng todo or pag tumatawa ka maygoshhh so cuteeeee mawawala pa mata mo nyann HAHAHA</p>
+  <span class="letter-tag">#You</span>
+</div>
+<div class="letter-box" data-tag="love">
+<p>No matter what happens baby lagi mong tandaan na you will always be my baby bunjing bunjing hehehe, my pookie wookie boo boo bear</p>
+<span class="letter-tag">#Love</span>
+</div>
+<div class="letter-box" data-tag="love">
+<p>Just so you know love, kapag nag aaway tayo or may problem dont worry okay? im not gonna get tired, lose feelings and not gonna leave my baby alone. We'll get through it everytime okay? i love you!!</p>
+<span class="letter-tag">#Love</span>
+</div>
+<div class="letter-box" data-tag="you">
+<p>You're worth the risk baby ko! everything is worth it pag kasama kita! ill always make you happy my love!</p>
+<span class="letter-tag">#You</span>
+</div>
+<div class="letter-box" data-tag="love">
+<p>I will always be here for you!</p>
+<span class="letter-tag">#Love</span>
+</div>
+<div class="letter-box" data-tag="health">
+<p>Please dont forget to rest okay? I know how tired and stressed you are about school, family and overthinking the future. Don't be too hard on yourself okay love? Remember everything will be okay, trust that brighter days are ahead and dont give up!!</p>
+<span class="letter-tag">#Health</span>
+</div>
+<div class="letter-box" data-tag="health">
+<p>Don't forget to drink... WATERRRR!!</p>
+<span class="letter-tag">#Health</span>
+</div>
+<div class="letter-box" data-tag="health">
+<p>Always remember IM PROUD OF YOU MY LOVE!! always and always</p>
+<span class="letter-tag">#Health</span>
+</div>
+<div class="letter-box" data-tag="health">
+<p>I know its hard right now baby, but remember para marating ang success you need to face struggles and problems. But dont worry andito ako para harapin din yun kasama ka!!</p>
+<span class="letter-tag">#Health</span>
+</div>
+<div class="letter-box" data-tag="health">
+<p>My baby, i want you to know na its okay to feel tired, drained of life and other things. But dont let it consume you okay?? We all go through difficult times, and its valid and understandable my love. But know na hindi ka nagiisa okay?? andito ako. Tell me everything and ill be by your side agad!</p>
+<span class="letter-tag">#Health</span>
+</div>
+</div>
+    </div>
+
+
+
+    <div id="memories" class="panel-section hidden">
+      <h2 class="ourmemories">Our Memories</h2>
+      <div class="button-container">
+          <label for="imageInput" class="custom-file-upload">Upload Memory</label>
+          <button onclick="addMemory()" class="add-memory">Add Memory</button>
+      </div>
+
+      <input type="file" id="imageInput" accept="image/*" hidden>
+  
+      <div id="memoryGallery" class="memory-gallery"></div>
+  </div>
+
+      <div id="paginationControls">
+          <button id="prevPage" onclick="changePage(-1)">Previous</button>
+          <button id="nextPage" onclick="changePage(1)">Next</button>
+      </div>
+  </div>
+
+  <div id="popupOverlay" class="popup-overlay hidden">
+    <div class="popup">
+        <img id="popupImage" src="" alt="Memory Image">
+        <p id="popupDescription"></p>
+        <button id="editDescription">Edit Description</button>
+        <button id="deleteMemory">Delete</button>
+        <button id="closePopup">Close</button>
+    </div>
+</div>
+
+<div id="confirmOverlay" class="popup-overlay hidden">
+    <div class="popup">
+        <h2>Are you sure?</h2>
+        <p>Do you really want to delete this memory?</p>
+        <button id="confirmDelete">Yes</button>
+        <button id="cancelDelete">No</button>
+    </div>
+</div>
+
+  <script src="panel.js"></script>
+</body>
+</html>
